@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="exer2.css">
+        <title>Notes des Etudiants</title>
+    </head>
+    <body>
+        <table id="table-notes" >
+            <tr>
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Note</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td onclick="editerNom(this)">Ali ben Salah</td>
+              <td onclick="editerNote(this)" class="note">12</td>
+              <td><button onclick="supprimerLigne(this)">Supprimer</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td onclick="editerNom(this)" >Mohamed ben Ali</td>
+              <td onclick="editerNote(this)" class="note">8</td>
+              <td><button onclick="supprimerLigne(this)">Supprimer</button></td>
+            </tr>
+          </table>
+          
+          <button onclick="ajouterEtudiant()">Ajouter un étudiant</button>
+          
+          <script>
+            function ajouterEtudiant() {
+              var nom = prompt("Entrez le nom de l'étudiant :");
+              var note = prompt("Entrez la note de l'étudiant :");
+              var table = document.getElementById("table-notes");
+              var rowCount = table.rows.length;
+              var row = table.insertRow(rowCount);
+              row.insertCell(0).innerHTML = rowCount;
+              row.insertCell(1).innerHTML = nom;
+              var noteCell = row.insertCell(2);
+              noteCell.innerHTML = note;
+              noteCell.classList.add("note");
+              row.insertCell(3).innerHTML = "<button onclick=\"supprimerLigne(this)\">Supprimer</button>";
+              if (note < 10) {
+                noteCell.style.color = "red";
+              } else {
+                noteCell.style.color = "green";
+              }
+            }
+
+          function editerNom(cell) {
+             var nouveauNom = prompt("Entrez le nouveau nom :");
+              cell.innerHTML = nouveauNom;
+             
+            }
+            function editerNote(cell) {
+              var nouvelleNote = prompt("Entrez la nouvelle note :");
+              cell.innerHTML = nouvelleNote;
+             if (nouvelleNote < 10) {
+             cell.style.color = "red";
+              } 
+              else {
+             cell.style.color = "green";
+              }
+             }
+
+            function supprimerLigne(button) {
+              var row = button.parentNode.parentNode;
+              row.parentNode.removeChild(row);
+            }
+          </script>
+
+    </body>
+</html>

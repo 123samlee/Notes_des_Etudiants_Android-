@@ -1,0 +1,17 @@
+#table-notes{
+    border-collapse: collapse;
+    width: 100%;
+    cursor:pointer;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0px 5px 10px rgba(0,0,0,15);
+
+}
+
+
+  #table-notes th, td {
+    text-align: left;
+    padding: 15px 20px;
+    border-bottom: 1px solid black;
+  }
+ 
